@@ -110,13 +110,15 @@ class ProjectIndex extends Component {
                 Project expense management
               </h1>
               <Link href="/newproject">
-                <Button
-                  primary
-                  size="massive"
-                  icon="add circle"
-                  content="New Project"
-                  style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-                ></Button>
+                <a>
+                  <Button
+                    primary
+                    size="massive"
+                    icon="add circle"
+                    content="New Project"
+                    style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+                  ></Button>
+                </a>
               </Link>
             </div>
             <Image

@@ -35,13 +35,15 @@ class IndexRow extends Component {
 
         <Cell>
           <Link href={`/project/${this.props.address}`}>
-            <Button
-              primary
-              icon="archive"
-              content="View Project"
-              floated="right"
-              style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-            ></Button>
+            <a>
+              <Button
+                primary
+                icon="archive"
+                content="View Project"
+                floated="right"
+                style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+              ></Button>
+            </a>
           </Link>
         </Cell>
       </Row>
