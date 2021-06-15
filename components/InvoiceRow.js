@@ -31,11 +31,10 @@ class InvoiceRow extends Component {
           {income.paid ? null : (
             <Button
               color="green"
-              basic
               onClick={this.onPay}
               style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
             >
-              Pay
+              Pay Invoice
             </Button>
           )}
         </Cell>

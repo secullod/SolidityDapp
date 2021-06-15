@@ -77,7 +77,7 @@ class RequestIndex extends Component {
       });
 
     ttotal = incTotal - expTotal;
-
+    expTotal = -expTotal;
     return {
       expenses,
       expenseCount,
@@ -140,7 +140,7 @@ class RequestIndex extends Component {
                   total={this.props.incTotal}
                 />
 
-                <Total total={this.props.incTotal} />
+                <Total label={"Total Income"} total={this.props.incTotal} />
               </Container>
 
               <Container
@@ -164,8 +164,8 @@ class RequestIndex extends Component {
                   dict={this.props.expDict}
                   total={this.props.expTotal}
                 />
-                <Total total={this.props.expTotal} />
-                <Total total={this.props.incTotal} />
+                <Total label={"Total Expenses"} total={this.props.expTotal} />
+                <Total label={"Net Income (Loss)"} total={this.props.ttotal} />
               </Container>
             </Body>
           </Table>

@@ -12,7 +12,7 @@ import {
 } from "semantic-ui-react";
 import factory from "../factory";
 import web3 from "../web3";
-import { Router } from "next/router";
+import Router from "next/router";
 
 class NewProject extends Component {
   state = {

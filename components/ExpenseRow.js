@@ -28,7 +28,7 @@ class ExpenseRow extends Component {
 
         <Cell>
           {expense.paid ? null : (
-            <Button color="green" basic onClick={this.onPay}>
+            <Button color="green" onClick={this.onPay}>
               Pay
             </Button>
           )}

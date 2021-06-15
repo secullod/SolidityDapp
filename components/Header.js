@@ -4,7 +4,6 @@ import Link from "next/link";
 
 class Header extends Component {
   render() {
-    console.log(this.props.address);
     return (
       <Menu
         style={{

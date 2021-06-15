@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Input, Message, Container } from "semantic-ui-react";
 import Project from "../../project";
 import web3 from "../../web3";
-import { Router } from "next/router";
+import Router from "next/router";
 import Layout from "../../components/Layout";
 
 class Expense extends Component {
@@ -35,7 +35,7 @@ class Expense extends Component {
           this.state.address
         )
         .send({ from: accounts[0] });
-      Router.pushRoute(`/expenses/${this.props.address}`);
+      Router.push(`/expenses/${this.props.address}`);
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }

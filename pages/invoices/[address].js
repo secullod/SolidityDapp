@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import Project from "../../project.js";
 import Link from "next/link";
-import { Form, Button, Message, Input, Grid, Table } from "semantic-ui-react";
+import {
+  Form,
+  Button,
+  Message,
+  Input,
+  Grid,
+  Table,
+  Container,
+} from "semantic-ui-react";
 import Layout from "../../components/Layout.js";
 import web3 from "../../web3";
 import Invoice from "../../components/Invoice";
@@ -66,41 +74,55 @@ class VendorPortal extends Component {
     const { Header, Row, HeaderCell, Body } = Table;
     return (
       <Layout address={this.props.address}>
-        <Grid>
-          <Grid.Row stretched>
-            <Grid.Column width={8}>
-              <Form onSubmit={this.onSubmit}>
-                <h3>Search by Invoice Number</h3>
+        {/* <Container text> */}
+        <h3
+          style={{
+            marginTop: "30px",
+          }}
+        >
+          Invoices
+        </h3>
+        {/* <Grid.Row> */}
+        {/* <Grid.Column width={8}> */}
+        {/* <Form
+              style={{
+                padding: "15px",
+                backgroundColor: "#ffebc8",
+                border: "none",
+                borderRadius: "5px",
+                boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+              }}
+              onSubmit={this.onSubmit}
+            >
+              <h3>Search by Invoice Number</h3> */}
 
-                <Form.Field>
-                  <Input
-                    value={this.state.invoice}
-                    onChange={(e) => this.setState({ invoice: e.target.value })}
-                  ></Input>
-                </Form.Field>
-                <Message
-                  error
-                  header="Oops!"
-                  content={this.state.errorMessage}
-                />
-                <Button primary>Submit</Button>
-              </Form>
-            </Grid.Column>
-
-            <Grid.Column width={8}>
-              {this.state.submitted && (
-                <Invoice
-                  invoice={this.state.invoicesub}
-                  category={this.state.category}
-                  amount={this.state.amount}
-                  description={this.state.description}
-                  paid={this.state.paid}
-                />
-              )}
-            </Grid.Column>
+        {/* <Form.Field>
+                <Input
+                  value={this.state.invoice}
+                  onChange={(e) => this.setState({ invoice: e.target.value })}
+                ></Input>
+              </Form.Field>
+              <Message error header="Oops!" content={this.state.errorMessage} />
+              <Button primary>Submit</Button>
+            </Form>
           </Grid.Row>
-        </Grid>
-        <h3>Invoices</h3>
+          <Grid.Row> */}
+        {/* </Grid.Column> */}
+
+        {/* <Grid.Column width={8}> */}
+        {/* {this.state.submitted && (
+              <Invoice
+                invoice={this.state.invoicesub}
+                category={this.state.category}
+                amount={this.state.amount}
+                description={this.state.description}
+                paid={this.state.paid}
+              />
+            )} */}
+        {/* </Grid.Column> */}
+        {/* </Grid.Row>
+        </Container> */}
+
         <Link href={`/invoice/${this.props.address}`}>
           <a>
             <Button primary floated="right" style={{ marginBottom: 10 }}>
@@ -108,19 +130,60 @@ class VendorPortal extends Component {
             </Button>
           </a>
         </Link>
-        <Table>
+        <Table
+          style={{
+            backgroundColor: "#ffebc8",
+            border: "none",
+            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          }}
+        >
           <Header>
             <Row>
-              <HeaderCell>ID</HeaderCell>
-              <HeaderCell>Description</HeaderCell>
-              <HeaderCell>Category</HeaderCell>
-              <HeaderCell>Vendor</HeaderCell>
-              <HeaderCell>Amount</HeaderCell>
+              <HeaderCell
+                style={{
+                  backgroundColor: "#ffebc8",
+                }}
+              >
+                ID
+              </HeaderCell>
+              <HeaderCell
+                style={{
+                  backgroundColor: "#ffebc8",
+                }}
+              >
+                Description
+              </HeaderCell>
+              <HeaderCell
+                style={{
+                  backgroundColor: "#ffebc8",
+                }}
+              >
+                Category
+              </HeaderCell>
+              <HeaderCell
+                style={{
+                  backgroundColor: "#ffebc8",
+                }}
+              >
+                Vendor
+              </HeaderCell>
+              <HeaderCell
+                style={{
+                  backgroundColor: "#ffebc8",
+                }}
+              >
+                Amount
+              </HeaderCell>
+              <HeaderCell
+                style={{
+                  backgroundColor: "#ffebc8",
+                }}
+              ></HeaderCell>
             </Row>
           </Header>
           <Body>{this.renderRows()}</Body>
         </Table>
-        <div>Found {this.props.incomeCount} pending invoices</div>
+        <div>Found {this.props.incomeCount} invoices</div>
       </Layout>
     );
   }

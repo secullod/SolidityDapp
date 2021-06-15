@@ -19,7 +19,7 @@ class RequestIndex extends Component {
         })
     );
 
-    return { address, expenses };
+    return { address, expenses, expenseCount };
   }
 
   renderRows() {
@@ -100,7 +100,7 @@ class RequestIndex extends Component {
           </Header>
           <Body>{this.renderRows()}</Body>
         </Table>
-        <div>Found {this.props.expenseCount} pending expenses</div>
+        <div>Found {this.props.expenseCount} expenses</div>
       </Layout>
     );
   }

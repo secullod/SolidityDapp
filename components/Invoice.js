@@ -12,12 +12,12 @@ class Invoice extends Component {
 
   onPay = async (e) => {
     e.preventDefault();
-    console.log("hello");
+
     this.setState({ loading: true, errorMessage: "" });
     try {
       const accounts = await web3.eth.getAccounts();
       this.setState({ account: accounts[0] });
-      console.log(web3.utils.toWei(this.props.amount, "ether"));
+
       await Account.methods
         .recieveIncome(this.props.invoice, this.state.account)
         .send({
@@ -63,14 +63,50 @@ class Invoice extends Component {
         textAlign="center"
         columns={5}
         error={!!this.state.errorMessage}
+        style={{
+          backgroundColor: "#ffebc8",
+          border: "none",
+          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          marginTop: "20px",
+        }}
       >
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Invoice</Table.HeaderCell>
-            <Table.HeaderCell>Description</Table.HeaderCell>
-            <Table.HeaderCell>Category</Table.HeaderCell>
-            <Table.HeaderCell>Amount</Table.HeaderCell>
-            <Table.HeaderCell>Paid</Table.HeaderCell>
+            <Table.HeaderCell
+              style={{
+                backgroundColor: "#ffebc8",
+              }}
+            >
+              Invoice
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              style={{
+                backgroundColor: "#ffebc8",
+              }}
+            >
+              Description
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              style={{
+                backgroundColor: "#ffebc8",
+              }}
+            >
+              Category
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              style={{
+                backgroundColor: "#ffebc8",
+              }}
+            >
+              Amount
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              style={{
+                backgroundColor: "#ffebc8",
+              }}
+            >
+              Paid
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -89,8 +125,17 @@ class Invoice extends Component {
           </Button> */}
 
         <Table.Footer fullWidth>
-          <Table.Row>
-            <Table.HeaderCell colSpan="5">
+          <Table.Row
+            style={{
+              backgroundColor: "#ffebc8",
+            }}
+          >
+            <Table.HeaderCell
+              colSpan="5"
+              style={{
+                backgroundColor: "#ffebc8",
+              }}
+            >
               <Message error header="Oops!" content={this.state.errorMessage} />
               <Button
                 floated="right"

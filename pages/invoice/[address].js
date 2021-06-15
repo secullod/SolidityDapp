@@ -34,7 +34,7 @@ class Invoice extends Component {
           web3.utils.toWei(this.state.amount, "ether")
         )
         .send({ from: accounts[0] });
-      Router.pushRoute(`/invoices/${this.props.address}`);
+      Router.push(`/invoices/${this.props.address}`);
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }

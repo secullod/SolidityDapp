@@ -45,7 +45,6 @@ class ProjectIndex extends Component {
   }
 
   renderCampaigns() {
-    console.log(this.props.results);
     const items = this.props.results.map((address) => {
       return {
         header: address.name,
@@ -152,7 +151,6 @@ class ProjectIndex extends Component {
               <Link href="/newproject">
                 <a>
                   <Button
-                    className="cat"
                     primary
                     floated="right"
                     icon="add circle"
