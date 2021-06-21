@@ -20,5 +20,7 @@ https://solidity-dapp.vercel.app/
 
 ## Screenshots
 
+<p float="left">
 <img src="./img/home.png" width="400" height="400">
 <img src="./img/is.png" width="400" height="400">
+</p>
