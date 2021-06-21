@@ -17,21 +17,20 @@ class IndexRow extends Component {
 
   render() {
     const { Row, Cell } = Table;
-    const { id, expense, expenseCount } = this.props;
+    const { id, income } = this.props;
 
     return (
       <Row textAlign="center">
         <Cell>{id}</Cell>
-        <Cell>{expense.name}</Cell>
-        <Cell>{expense.desc}</Cell>
+        <Cell>{income.name}</Cell>
+        <Cell>{income.desc}</Cell>
 
         <Cell>
-          {web3.utils.fromWei(expense.balance, "ether")}{" "}
-          <Icon name="ethereum" />
+          {web3.utils.fromWei(income.balance, "ether")} <Icon name="ethereum" />
           ether
         </Cell>
-        <Cell>{expense.incomes}</Cell>
-        <Cell>{expense.expenses}</Cell>
+        <Cell>{income.incomes}</Cell>
+        <Cell>{income.expenses}</Cell>
 
         <Cell>
           <Link href={`/project/${this.props.address}`}>

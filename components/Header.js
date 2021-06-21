@@ -1,30 +1,18 @@
 import React, { Component } from "react";
 import { Menu, Button } from "semantic-ui-react";
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 class Header extends Component {
   render() {
     return (
-      <Menu
-        style={{
-          marginTop: "15px",
-          backgroundColor: "#ffebc8",
-          border: "none",
-          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-        }}
-      >
+      <Menu className={styles.menucustom}>
         <Link href="/">
           <Button
+            className={styles.custom}
             icon="chain"
             color="black"
             content="ProjectChain"
-            style={{
-              padding: "20px",
-              fontSize: "20px",
-              fontWeight: "bold",
-              margin: "5px",
-              boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-            }}
           ></Button>
         </Link>
         {this.props.address ? (
@@ -35,9 +23,7 @@ class Header extends Component {
                 icon="folder"
                 content="Project Home"
                 floated="right"
-                style={{
-                  margin: "5px",
-                }}
+                className={styles.shadow}
               ></Button>
             </Link>
             <Link href={`/invoice/${this.props.address}`}>
@@ -45,10 +31,7 @@ class Header extends Component {
                 color="green"
                 icon="add circle"
                 floated="right"
-                style={{
-                  margin: "5px",
-                  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                }}
+                className={styles.shadow}
               ></Button>
             </Link>
             <Link href={`/expense/${this.props.address}`}>
@@ -56,10 +39,7 @@ class Header extends Component {
                 color="red"
                 icon="minus circle"
                 floated="right"
-                style={{
-                  margin: "5px",
-                  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                }}
+                className={styles.shadow}
               ></Button>
             </Link>
           </Menu.Menu>
@@ -71,10 +51,7 @@ class Header extends Component {
                 icon="add circle"
                 content="New Project"
                 floated="right"
-                style={{
-                  margin: "5px",
-                  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                }}
+                className={styles.shadow}
               ></Button>
             </Link>
           </Menu.Menu>

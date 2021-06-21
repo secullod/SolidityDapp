@@ -83,7 +83,7 @@ class Expense extends Component {
             <Form.Field>
               <label>Amount</label>
               <Input
-                placeholder="$120"
+                placeholder=".0002"
                 value={this.state.amount}
                 onChange={(e) => this.setState({ amount: e.target.value })}
               />

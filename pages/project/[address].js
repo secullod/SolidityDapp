@@ -20,34 +20,17 @@ class ProjectIndex extends Component {
       name: await project.methods.projectName().call(),
       incomes: await project.methods.getIncomesCount().call(),
       expenses: await project.methods.getExpensesCount().call(),
-      // balance: await web3.utils.fromWei(balance, "ether"),
       balance: await web3.eth.getBalance(address),
       address: await project._address,
     };
-
-    // const results = await Promise.all(values);
     return { values };
   }
-
-  // renderCampaigns() {
-  //   console.log(this.props.values);
-  //   // console.log(this.props.address);
-  //   // console.log(this.props.project.methods.projectName().call());
-  //   // return <div>{this.props.address}</div>;
-  // }
 
   render() {
     return (
       <Layout address={this.props.values.address}>
         <Container text>
           <Grid>
-            {/* <Card
-              fluid
-              style={{
-                padding: "20px",
-                marginTop: "30px",
-              }}
-            > */}
             <Grid.Row
               style={{
                 marginTop: "30px",
@@ -60,7 +43,6 @@ class ProjectIndex extends Component {
                   alignItems: "center",
                 }}
               >
-                {/* <Card.Content textAlign="center"> */}
                 <Header as="h1">Project: {this.props.values.name}</Header>
                 <Header
                   as="h3"
@@ -70,10 +52,9 @@ class ProjectIndex extends Component {
                 >
                   Description: {this.props.values.desc}
                 </Header>
-                {/* </Card.Content> */}
               </Grid.Column>
             </Grid.Row>
-            {/* </Card> */}
+
             <Card
               fluid
               raised

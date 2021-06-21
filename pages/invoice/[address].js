@@ -66,7 +66,7 @@ class Invoice extends Component {
             <Form.Field>
               <label>Description</label>
               <Input
-                placeholder="Supplies..."
+                placeholder="Car Sales..."
                 value={this.state.description}
                 onChange={(e) => this.setState({ description: e.target.value })}
               />
@@ -74,7 +74,7 @@ class Invoice extends Component {
             <Form.Field>
               <label>Category</label>
               <Input
-                placeholder="Office Supplies..."
+                placeholder="Sales Revenue..."
                 value={this.state.category}
                 onChange={(e) => this.setState({ category: e.target.value })}
               />
@@ -82,7 +82,7 @@ class Invoice extends Component {
             <Form.Field>
               <label>Amount</label>
               <Input
-                placeholder="$120"
+                placeholder=".0003"
                 value={this.state.amount}
                 onChange={(e) => this.setState({ amount: e.target.value })}
               />

@@ -1,17 +1,7 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Table,
-  Row,
-  Icon,
-  Container,
-  Header,
-  Divider,
-} from "semantic-ui-react";
-import Link from "next/link";
+import { Table, Container } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 import Project from "../../project";
-import ExpenseRow from "../../components/ExpenseRow";
 import web3 from "../../web3";
 import StatementSection from "../../components/StatementSection";
 import Total from "../../components/Total";
@@ -44,45 +34,37 @@ class RequestIndex extends Component {
         })
     );
 
-    incomes
-      // .filter((expense) => expense.paid == false)
-      .map((income) => {
-        if (!incDict[income.category]) {
-          incDict[income.category] = [
-            { description: income.description, amount: income.amount },
-          ];
-        } else {
-          incDict[income.category].push({
-            description: income.description,
-            amount: income.amount,
-          });
-        }
-        incTotal += parseFloat(web3.utils.fromWei(income.amount, "ether"));
-      });
+    incomes.map((income) => {
+      if (!incDict[income.category]) {
+        incDict[income.category] = [
+          { description: income.description, amount: income.amount },
+        ];
+      } else {
+        incDict[income.category].push({
+          description: income.description,
+          amount: income.amount,
+        });
+      }
+      incTotal += parseFloat(web3.utils.fromWei(income.amount, "ether"));
+    });
 
-    expenses
-      // .filter((expense) => expense.paid == false)
-      .map((expense) => {
-        if (!expDict[expense.category]) {
-          expDict[expense.category] = [
-            { description: expense.description, amount: expense.amount },
-          ];
-        } else {
-          expDict[expense.category].push({
-            description: expense.description,
-            amount: expense.amount,
-          });
-        }
-        expTotal += parseFloat(web3.utils.fromWei(expense.amount, "ether"));
-      });
+    expenses.map((expense) => {
+      if (!expDict[expense.category]) {
+        expDict[expense.category] = [
+          { description: expense.description, amount: expense.amount },
+        ];
+      } else {
+        expDict[expense.category].push({
+          description: expense.description,
+          amount: expense.amount,
+        });
+      }
+      expTotal += parseFloat(web3.utils.fromWei(expense.amount, "ether"));
+    });
 
     ttotal = incTotal - expTotal;
     expTotal = -expTotal;
     return {
-      expenses,
-      expenseCount,
-      incomes,
-      incomeCount,
       address,
       incDict,
       expDict,
@@ -93,7 +75,7 @@ class RequestIndex extends Component {
   }
 
   render() {
-    const { Header, Row, Cell, Body } = Table;
+    const { Header, Body } = Table;
     return (
       <Layout address={this.props.address}>
         <Container text>
