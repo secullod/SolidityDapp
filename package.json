@@ -1,8 +1,8 @@
 {
-  "name": "account",
+  "name": "projectchain",
   "version": "1.0.0",
   "description": "",
-  "main": "vendorPortal.js",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev"
   },
